@@ -1,14 +1,15 @@
 package main
 
 import (
-  "gestbook/controller"
-  "github.com/gin-gonic/gin"
+	"gestbook/controller"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-  router := gin.Default()
-  router.LoadHTMLGlob("views/*")
+	router := gin.Default()
+	router.LoadHTMLGlob("views/*")
 
-  router.GET("/", controller.IndexGET)
-  router.Run(":8080")
+	router.GET("/", controller.IndexGET)
+	router.POST("/post", controller.ReceivePost)
+	router.Run(":8080")
 }
